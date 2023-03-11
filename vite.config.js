@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/js/play.js',
                 'resources/js/stacks.js',
                 'resources/js/stats.js',
+                'resources/js/vh.js',
             ],
             refresh: true,
         }),
