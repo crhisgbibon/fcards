@@ -43,6 +43,7 @@ let currentSourceDiv = undefined;
 
 // Startup
 TogglePanel(messageBox);
+SwitchSelect(2);
 pPlayButton.style.backgroundColor = "var(--buttonBackgroundLight)";
 
 function TogglePanel(panel)
@@ -402,18 +403,18 @@ function Post(trigger)
 function ReAssign()
 {
   let QuestionHolder = document.getElementById("QuestionHolder");
-  QuestionHolder.onclick = function() { FlipCard(`pFlashCard`, `QuestionHolder`, `pFlashCardAnswer`, `AnswerHolder`) };
+  if(QuestionHolder !== null) QuestionHolder.onclick = function() { FlipCard(`pFlashCard`, `QuestionHolder`, `pFlashCardAnswer`, `AnswerHolder`) };
 
   let AnswerHolder = document.getElementById("AnswerHolder");
-  AnswerHolder.onclick = function() { FlipCard(`pFlashCard`, `QuestionHolder`, `pFlashCardAnswer`, `AnswerHolder`) };
+  if(AnswerHolder !== null) AnswerHolder.onclick = function() { FlipCard(`pFlashCard`, `QuestionHolder`, `pFlashCardAnswer`, `AnswerHolder`) };
 
   let rightAnswerButton = document.getElementById("rightAnswerButton");
   let id = rightAnswerButton.dataset.i;
-  rightAnswerButton.onclick = function() { NextCard(`right`, id); };
+  if(rightAnswerButton !== null) rightAnswerButton.onclick = function() { NextCard(`right`, id); };
 
   let wrongAnswerButton = document.getElementById("wrongAnswerButton");
   let id2 = wrongAnswerButton.dataset.i;
-  wrongAnswerButton.onclick = function() { NextCard(`wrong`, id2); };
+  if(wrongAnswerButton !== null) wrongAnswerButton.onclick = function() { NextCard(`wrong`, id2); };
 
   let source = document.getElementsByClassName("source");
   for(let i = 0; i < source.length; i++)

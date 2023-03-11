@@ -14,7 +14,6 @@
       <button id="NextStat" class="panelToggle w-1/3 h-10/12 mx-4 p-2 flex justify-center items-center rounded-lg">
         <img src="{{ asset('storage/Assets/chevronRight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
       </button>
-      </button>
     </div>
 
     <div class="w-full my-2 flex justify-center items-center" style="min-height:calc(var(--vh) * 45);max-height:calc(var(--vh) * 45)">

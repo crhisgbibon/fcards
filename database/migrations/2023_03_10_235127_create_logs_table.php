@@ -15,10 +15,10 @@ return new class extends Migration
       $table->id()->unique();
       $table->integer('userID');
       $table->integer('cardID');
-      $table->integer('deckID');
       $table->integer('logTime');
       $table->boolean('result');
       $table->boolean('hiddenRow');
+      $table->integer('deckID');
     });
   }
 
