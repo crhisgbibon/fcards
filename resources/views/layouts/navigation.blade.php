@@ -9,6 +9,11 @@
           {{ config('app.name', '') }}
         @endif
       </div>
+      <div>
+        @if (isset($headerControl))
+          {{ $headerControl }}
+        @endif
+      </div>
       <!-- Settings Dropdown -->
       <div class="hidden sm:flex sm:items-center h-full justify-end items-center mr-2 w-1/2">
         <x-dropdown align="right" width="48">
@@ -36,8 +41,8 @@
               <x-responsive-nav-link :href="route('Play')">
                 {{ __('Play') }}
               </x-response-nav-link>
-              <x-responsive-nav-link :href="route('Edit')">
-                {{ __('Edit') }}
+              <x-responsive-nav-link :href="route('Decks')">
+                {{ __('Decks') }}
               </x-response-nav-link>
               <x-responsive-nav-link :href="route('Stacks')">
                 {{ __('Stacks') }}
@@ -104,8 +109,8 @@
           <x-responsive-nav-link :href="route('Play')">
             {{ __('Play') }}
           </x-response-nav-link>
-          <x-responsive-nav-link :href="route('Edit')">
-            {{ __('Edit') }}
+          <x-responsive-nav-link :href="route('Decks')">
+            {{ __('Decks') }}
           </x-response-nav-link>
           <x-responsive-nav-link :href="route('Stacks')">
             {{ __('Stacks') }}

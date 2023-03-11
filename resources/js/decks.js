@@ -198,7 +198,7 @@ function SaveCardChanges(id)
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/decks/SaveCardChanges',
+    url: '/decks/SaveCardChanges',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -234,7 +234,7 @@ function DeleteCard(id)
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/decks/DeleteCard',
+    url: '/decks/DeleteCard',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -267,7 +267,7 @@ function UpdateCategoryName(id)
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/decks/UpdateCategoryName',
+    url: '/decks/UpdateCategoryName',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -299,7 +299,7 @@ function AddNewCard()
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/decks/AddNewCard',
+    url: '/decks/AddNewCard',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -349,7 +349,7 @@ function SaveCol(col, stackID)
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/decks/StackCol',
+    url: '/decks/StackCol',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

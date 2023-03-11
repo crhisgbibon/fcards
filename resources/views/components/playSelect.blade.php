@@ -1,7 +1,7 @@
 @isset($decks)
 @isset($stacks)
 
-<div id="playSelectMenu" class="fixed z-10 w-full bg-white mx-auto flex flex-col justify-start items-center" style="height:calc(var(--vh) * 77">
+<div id="playSelectMenu" class="fixed z-10 w-full bg-white mx-auto flex flex-col justify-start items-center">
 
   <div id="Toggles" class="mx-auto flex flex-row justify-center items-center w-full max-w-xs" style="height:calc(var(--vh) * 7.5">
     <button id="toggleDecks" class="panelToggle w-1/3 h-10/12 mx-4 p-2 flex justify-center items-center rounded-lg" style="background-color:var(--foregroundLight);color:var(--background)">{{ __('Decks') }}</button>
@@ -9,7 +9,7 @@
   </div>
 
   <div id="selectDeckPanel" class="togglePanels mx-auto flex flex-col justify-start items-center w-full max-w-xs">
-    <div id="triggerSelectDeck" class="togglePanelSub max-w-xs w-full max-h-full overflow-y-auto" style="max-height:calc(var(--vh) * 62">
+    <div id="triggerSelectDeck" class="togglePanelSub max-w-xs w-full max-h-full overflow-y-auto" style="max-height:calc(var(--vh) * 85">
       <?php
         foreach($decks as $deck)
         {
@@ -20,7 +20,7 @@
   </div>
 
   <div id="selectStackPanel" class="togglePanels mx-auto flex flex-col justify-start items-center w-full max-w-xs" style="display:none;">
-    <div id="triggerSelectStack" class="togglePanelSub max-w-xs w-full max-h-full overflow-y-auto" style="max-height:calc(var(--vh) * 62">
+    <div id="triggerSelectStack" class="togglePanelSub max-w-xs w-full max-h-full overflow-y-auto" style="max-height:calc(var(--vh) * 85">
       <?php
         foreach($stacks as $stack)
         {

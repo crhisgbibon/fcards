@@ -1,12 +1,3 @@
-<style>
-  :root{
-    --green: rgba(150, 225, 150, 1);
-    --greenBorder: rgba(125, 175, 125, 1);
-    --red: rgba(225, 150, 150, 1);
-    --redBorder: rgba(175, 125, 125, 1);
-  }
-</style>
-
 <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1/dist/chart.umd.min.js"></script>
 
 <script>

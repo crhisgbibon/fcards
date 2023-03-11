@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 
 Route::controller(ControllerFlashcards::class)->group(function () {
   Route::get('/play', 'play')->middleware(['auth', 'verified'])->name('Play');
-  Route::get('/decks', 'edit')->middleware(['auth', 'verified'])->name('Edit');
+  Route::get('/decks', 'decks')->middleware(['auth', 'verified'])->name('Decks');
   Route::get('/stacks', 'stacks')->middleware(['auth', 'verified'])->name('Stacks');
   Route::get('/stats', 'stats')->middleware(['auth', 'verified'])->name('Stats');
 

@@ -6,7 +6,7 @@
   <input class="w-full max-w-xs h-11/12" type="text" id="Find" placeholder="Search...">
 
   <button class="mx-2 flex justify-center items-center" id="New" style="width:10%">
-    <img src="{{ asset('storage/Assets/plusLight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
+    <img src="{{ asset('storage/Assets/plus.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
   </button>
 
 </div>

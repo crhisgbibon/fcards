@@ -29,13 +29,13 @@
 
         <div class='pControlDiv'>
           <button class='pButton' id="rightAnswerButton" data-i={{$card->id}}>
-            <img class="w-2/4 h-2/4" src="{{ asset('storage/Assets/tickLight.svg') }}">
+            <img class="w-2/4 h-2/4" src="{{ asset('storage/Assets/tick.svg') }}">
           </button>
         </div>
 
         <div class='pControlDiv'>
           <button class='pButton' id="wrongAnswerButton" data-i={{$card->id}}>
-            <img class="w-2/4 h-2/4" src="{{ asset('storage/Assets/xLight.svg') }}">
+            <img class="w-2/4 h-2/4" src="{{ asset('storage/Assets/x.svg') }}">
           </button>
         </div>
 

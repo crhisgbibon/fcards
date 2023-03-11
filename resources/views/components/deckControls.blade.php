@@ -13,14 +13,14 @@
   <input class="w-full h-11/12" type="text" id="eFind" placeholder="Search..." style="width:45%">
 
   <button class="mx-2 flex justify-center items-center" id="eNewCard" style="width:10%">
-    <img src="{{ asset('storage/Assets/plusLight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
+    <img src="{{ asset('storage/Assets/plus.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
   </button>
 
 </div>
 
 <div id="eCardDisplay" class="overflow-y-scroll" style="height:calc(var(--vh) * 77)">
   @isset($cards)
-    <x-editCardData :cards="$cards" :decks="$decks"></x-editCardData>
+    <x-deckCardData :cards="$cards" :decks="$decks"></x-deckCardData>
   @endisset
 </div>
 

@@ -9,14 +9,14 @@
 
     <div class="flex flex-row justify-center items-center w-full mx-2 bg-zinc-100 border-y md:border-x border-zinc-400">
       <button class="cardmodify mx-2 flex justify-center items-center" id='eCardModify' data-i={{$deck->id}}>
-        <img src="{{ asset('storage/Assets/eyeLight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
+        <img src="{{ asset('storage/Assets/eye.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
       </button>
       <button class="newcardwithcategory mx-2 flex justify-center items-center" id='eCardModify' data-i={{$deck->id}}>
-        <img src="{{ asset('storage/Assets/plusLight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
+        <img src="{{ asset('storage/Assets/plus.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
       </button>
       <input type="text" class="mx-2 w-full p-2 bg-transparent border-0" id="{{$deck->id}}newCategoryName" value='{{$deck->name}}'>
       <button class="updatecategoryname mx-2 flex justify-center items-center" id='eCardModify' data-i={{$deck->id}}>
-        <img src="{{ asset('storage/Assets/saveLight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
+        <img src="{{ asset('storage/Assets/save.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
       </button>
       <div id="{{$deck->id}}colDiv" class="showCols mx-2 rounded-lg" data-i={{$deck->id}}
         style="width:75%;height:75%;min-width:20px;min-height:20px;max-width:40px;max-height:40px;background-color:<?php
@@ -84,10 +84,10 @@
 
             <div class="flex flex-row justify-evenly items-center w-full mx-auto m-2">
               <button class="savecardchanges m-2" data-i={{$card->id}}>
-                <img class="w-3/4 h-3/4 flex justify-center items-center" src="{{ asset('storage/Assets/saveLight.svg') }}">
+                <img class="w-3/4 h-3/4 flex justify-center items-center" src="{{ asset('storage/Assets/save.svg') }}">
               </button>
               <button class="deletecardbutton m-2" data-i={{$card->id}}>
-                <img class="w-3/4 h-3/4 flex justify-center items-center" src="{{ asset('storage/Assets/eraseLight.svg') }}">
+                <img class="w-3/4 h-3/4 flex justify-center items-center" src="{{ asset('storage/Assets/erase.svg') }}">
               </button>
             </div>
 
@@ -99,7 +99,7 @@
 
       <div class="w-full m-2 p2 flex justify-center items-center">
         <button class="addcardwithcategory m-2 p2 flex justify-center items-center" data-i={{$deck->id}} id='eCardModify'>
-          <img src="{{ asset('storage/Assets/plusLight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
+          <img src="{{ asset('storage/Assets/plus.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
         </button>
       </div>
 

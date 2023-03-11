@@ -169,9 +169,11 @@ class ModelFlashcards extends Model
     }
     else
     {
+      $col = '#ffffff';
       $id = DB::table('decks')->insertGetId([
         'userID' => $userID,
         'name' => $name,
+        'col' => $col,
         'hiddenRow' => 0
       ]);
     }

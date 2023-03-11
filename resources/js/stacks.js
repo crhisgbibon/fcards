@@ -194,7 +194,7 @@ function Delete(id)
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/stacks/DeleteStack',
+    url: '/stacks/DeleteStack',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -227,7 +227,7 @@ function UpdateStackName(id)
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/stacks/UpdateStackName',
+    url: '/stacks/UpdateStackName',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -264,7 +264,7 @@ function AddNewItem()
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/stacks/AddNewStack',
+    url: '/stacks/AddNewStack',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -303,7 +303,7 @@ function EditExistingStack()
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/stacks/EditExistingStack',
+    url: '/stacks/EditExistingStack',
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

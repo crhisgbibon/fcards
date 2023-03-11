@@ -1,40 +1,7 @@
 @vite(['resources/js/stats.js'])
+@vite(['resources/css/stats.css'])
 
 <x-app-layout>
-
-  <style>
-    :root{
-      --background: var(--backgroundLight);
-      --foreground: var(--foregroundLight);
-
-      --buttonBackground: var(--buttonBackgroundLight);
-      --buttonBorder: var(--buttonBorderLight);
-
-      --buttonBackgroundLight: rgba(225, 225, 225, 1);
-      --buttonBorderLight: rgba(75,75,75,1);
-
-      --foregroundLight: rgba(50, 50, 50, 1);
-      --backgroundLight: rgba(255, 255, 255, 1);
-    }
-
-    .right{
-      background-color: var(--green);
-    }
-
-    .wrong{
-      background-color: var(--red);
-    }
-
-    .rightWrong{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      height: 50px;
-      width: 50px;
-      border: 1px solid var(--foreground);
-    }
-  </style>
 
   <x-slot name="appTitle">
     {{ __('Stats') }}

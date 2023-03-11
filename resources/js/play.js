@@ -362,7 +362,7 @@ function Post(trigger)
   $.ajax(
   {
     method: "POST",
-    url: '/flashcards/play/' + trigger,
+    url: '/play/' + trigger,
     headers:
     {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

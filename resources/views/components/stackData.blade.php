@@ -13,11 +13,11 @@
 
       <div class="flex flex-row justify-center items-center w-full mx-2 bg-zinc-100 border-y md:border-x border-zinc-400">
         <button class="togglestack mx-2 flex justify-center items-center" data-i={{$stack->id}}>
-          <img src="{{ asset('storage/Assets/eyeLight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
+          <img src="{{ asset('storage/Assets/eye.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
         </button>
         <input class="mx-2 w-full p-2 bg-transparent" id="{{$stack->id}}NewName" value='{{$stack->name}}'>
         <button class="updatestackname mx-2 flex justify-center items-center" data-i={{$stack->id}}>
-          <img src="{{ asset('storage/Assets/saveLight.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
+          <img src="{{ asset('storage/Assets/save.svg') }}" style="width:75%;height:75%;max-width:30px;max-height:30px">
         </button>
       </div>
 
@@ -43,10 +43,10 @@
 
         <div class="flex flex-row justify-evenly items-center w-full mx-auto m-2">
           <button data-i={{$stack->id}} class="editstackscreen m-2">
-            <img class="w-3/4 h-3/4 flex justify-center items-center" src="{{ asset('storage/Assets/plusLight.svg') }}">
+            <img class="w-3/4 h-3/4 flex justify-center items-center" src="{{ asset('storage/Assets/plus.svg') }}">
           </button>
           <button data-i={{$stack->id}} class="deletestack m-2">
-            <img class="w-3/4 h-3/4 flex justify-center items-center" src="{{ asset('storage/Assets/eraseLight.svg') }}">
+            <img class="w-3/4 h-3/4 flex justify-center items-center" src="{{ asset('storage/Assets/erase.svg') }}">
           </button>
         </div>
 

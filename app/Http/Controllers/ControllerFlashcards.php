@@ -47,14 +47,14 @@ class ControllerFlashcards extends Controller
     ]);
   }
 
-  public function edit()
+  public function decks()
   {
     date_default_timezone_set("Europe/London");
     $model = new ModelFlashcards();
     $cards = $model->GetCardDataByCategory();
     $decks = $model->GetDecks();
     $now = time();
-    return view('edit', [
+    return view('decks', [
       'now' => $now,
       'cards' => $cards,
       'decks' => $decks
@@ -163,7 +163,7 @@ class ControllerFlashcards extends Controller
     $model = new ModelFlashcards();
     $cards = $model->GetCardDataByCategory();
     $decks = $model->GetDecks();
-    return view('components.editCardData', [
+    return view('components.deckCardData', [
       'cards' => $cards,
       'decks' => $decks
     ]);
