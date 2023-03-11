@@ -12,12 +12,12 @@ class ModelFlashcards extends Model
 {
   use HasFactory;
 
-  protected $table = "flashcards_cards";
+  protected $table = "cards";
 
   public function GetCardData(int $index)
   {
     $id = Auth::user()->id;
-    return $cards = DB::table('flashcards_cards')
+    return $cards = DB::table('cards')
     ->where('userID', '=', $id)
     ->where('id', '=', $index)
     ->where('hiddenRow', '=', 0)
@@ -27,7 +27,7 @@ class ModelFlashcards extends Model
   public function GetCardDataByCategory()
   {
     $id = Auth::user()->id;
-    return $cards = DB::table('flashcards_cards')
+    return $cards = DB::table('cards')
     ->where('userID', '=', $id)
     ->where('hiddenRow', '=', 0)
     ->orderBy('id', 'asc')
@@ -38,7 +38,7 @@ class ModelFlashcards extends Model
   public function GetDecks()
   {
     $id = Auth::user()->id;
-    return $categories = DB::table('flashcards_decks')
+    return $categories = DB::table('decks')
     ->where('userID', '=', $id)
     ->where('hiddenRow', '=', 0)
     ->orderBy('name', 'asc')
@@ -49,7 +49,7 @@ class ModelFlashcards extends Model
   public function GetAnyCard()
   {
     $id = Auth::user()->id;
-    return $cards = DB::table('flashcards_cards')
+    return $cards = DB::table('cards')
     ->where('userID', '=', $id)
     ->where('hiddenRow', '=', 0)
     ->inRandomOrder()
@@ -61,7 +61,7 @@ class ModelFlashcards extends Model
     $id = Auth::user()->id;
     if($type === "DECK")
     {
-      return $cards = DB::table('flashcards_cards')
+      return $cards = DB::table('cards')
       ->where('userID', '=', $id)
       ->where('deckID', '=', $deckID)
       ->where('hiddenRow', '=', 0)
@@ -77,7 +77,7 @@ class ModelFlashcards extends Model
       {
         array_push($whereDeck, (int)$decks[$i]);
       }
-      return $cards = DB::table('flashcards_cards')
+      return $cards = DB::table('cards')
       ->where('userID', '=', $id)
       ->where('hiddenRow', '=', 0)
       ->whereIn('deckID', $whereDeck)
@@ -90,7 +90,7 @@ class ModelFlashcards extends Model
   {
     $userID = Auth::id();
     $now = time();
-    DB::table('flashcards_logs')->insert([
+    DB::table('logs')->insert([
       'userID' => $userID,
       'cardID' => $cardData->id,
       'deckID' => $cardData->deckID,
@@ -104,9 +104,9 @@ class ModelFlashcards extends Model
   {
     $userID = Auth::id();
 
-    if(DB::table('flashcards_decks')->where('name', "=", $deckName)->where('userID', "=", $userID)->exists())
+    if(DB::table('decks')->where('name', "=", $deckName)->where('userID', "=", $userID)->exists())
     {
-      $id = DB::table('flashcards_decks')
+      $id = DB::table('decks')
       ->select('id')
       ->where('userID', "=", $userID)
       ->where('name', "=", $deckName)
@@ -115,14 +115,14 @@ class ModelFlashcards extends Model
     }
     else
     {
-      $id = DB::table('flashcards_decks')->insertGetId([
+      $id = DB::table('decks')->insertGetId([
         'userID' => $userID,
         'name' => $deckName,
         'hiddenRow' => 0
       ]);
     }
 
-    DB::table('flashcards_cards')
+    DB::table('cards')
     ->where('userID', "=", $userID)
     ->where('id', "=", $index)
     ->update([
@@ -136,7 +136,7 @@ class ModelFlashcards extends Model
   public function DeleteCard(int $index)
   {
     $userID = Auth::id();
-    DB::table('flashcards_cards')
+    DB::table('cards')
     ->where('userID', "=", $userID)
     ->where('id', "=", $index)
     ->update([
@@ -147,7 +147,7 @@ class ModelFlashcards extends Model
   public function UpdateCategory(int $index, string $newName)
   {
     $userID = Auth::id();
-    DB::table('flashcards_decks')
+    DB::table('decks')
     ->where('userID', "=", $userID)
     ->where('id', "=", $index)
     ->update([
@@ -158,9 +158,9 @@ class ModelFlashcards extends Model
   public function AddNewCard(string $name, $question, $answer, $link)
   {
     $userID = Auth::id();
-    if(DB::table('flashcards_decks')->where('name', "=", $name)->where('userID', "=", $userID)->exists())
+    if(DB::table('decks')->where('name', "=", $name)->where('userID', "=", $userID)->exists())
     {
-      $id = DB::table('flashcards_decks')
+      $id = DB::table('decks')
       ->select('id')
       ->where('userID', "=", $userID)
       ->where('name', "=", $name)
@@ -169,14 +169,14 @@ class ModelFlashcards extends Model
     }
     else
     {
-      $id = DB::table('flashcards_decks')->insertGetId([
+      $id = DB::table('decks')->insertGetId([
         'userID' => $userID,
         'name' => $name,
         'hiddenRow' => 0
       ]);
     }
 
-    DB::table('flashcards_cards')->insert([
+    DB::table('cards')->insert([
       'userID' => $userID,
       'deckID' => $id,
       'question' => $question,
@@ -190,7 +190,7 @@ class ModelFlashcards extends Model
   {
     $json = json_encode($rgb);
     $userID = Auth::id();
-    DB::table('flashcards_decks')
+    DB::table('decks')
     ->where('userID', "=", $userID)
     ->where('id', "=", $index)
     ->update([
@@ -203,7 +203,7 @@ class ModelFlashcards extends Model
     if($card === null) return;
     if($card->deckID === null) return;
     $id = Auth::user()->id;
-    $deck = DB::table('flashcards_decks')
+    $deck = DB::table('decks')
     ->where('userID', '=', $id)
     ->where('hiddenRow', '=', 0)
     ->where('id', '=', $card->deckID)
@@ -216,7 +216,7 @@ class ModelFlashcards extends Model
     if($card === null) return;
     if($card->deckID === null) return;
     $id = Auth::user()->id;
-    $deck = DB::table('flashcards_decks')
+    $deck = DB::table('decks')
     ->where('userID', '=', $id)
     ->where('hiddenRow', '=', 0)
     ->where('id', '=', $card->deckID)
@@ -227,7 +227,7 @@ class ModelFlashcards extends Model
   public function GetStacks()
   {
     $id = Auth::user()->id;
-    return $stacks = DB::table('flashcards_stacks')
+    return $stacks = DB::table('stacks')
     ->where('userID', '=', $id)
     ->where('hiddenRow', '=', 0)
     ->orderBy('name', 'asc')
@@ -237,7 +237,7 @@ class ModelFlashcards extends Model
   public function GetStackDeck($index)
   {
     $id = Auth::user()->id;
-    $stack = DB::table('flashcards_stacks')
+    $stack = DB::table('stacks')
     ->where('userID', '=', $id)
     ->where('id', '=', $index)
     ->where('hiddenRow', '=', 0)
@@ -260,7 +260,7 @@ class ModelFlashcards extends Model
   {
     $id = Auth::user()->id;
     $json = json_encode($decks);
-    DB::table('flashcards_stacks')->insert([
+    DB::table('stacks')->insert([
       'userID' => $id,
       'name' => $name,
       'decks' => $json,
@@ -271,7 +271,7 @@ class ModelFlashcards extends Model
   public function UpdateStackName(int $index, string $newName)
   {
     $userID = Auth::id();
-    DB::table('flashcards_stacks')
+    DB::table('stacks')
     ->where('userID', "=", $userID)
     ->where('id', "=", $index)
     ->update([
@@ -282,7 +282,7 @@ class ModelFlashcards extends Model
   public function DeleteStack(int $index)
   {
     $userID = Auth::id();
-    DB::table('flashcards_stacks')
+    DB::table('stacks')
     ->where('userID', "=", $userID)
     ->where('id', "=", $index)
     ->update([
@@ -294,7 +294,7 @@ class ModelFlashcards extends Model
   {
     $userID = Auth::id();
     $json = json_encode($decks);
-    DB::table('flashcards_stacks')
+    DB::table('stacks')
     ->where('userID', "=", $userID)
     ->where('id', "=", $index)
     ->update([
@@ -306,7 +306,7 @@ class ModelFlashcards extends Model
   public function GetLogs()
   {
     $id = Auth::user()->id;
-    return $logs = DB::table('flashcards_logs')
+    return $logs = DB::table('logs')
     ->where('userID', '=', $id)
     ->where('hiddenRow', '=', 0)
     ->orderBy('logTime', 'desc')

@@ -37,7 +37,7 @@ class ControllerFlashcards extends Controller
     $now = time();
     $currentScore = (int)session('score');
     $currentTotal = (int)session('total');
-    return view('Flashcards.play', [
+    return view('play', [
       'now' => $now,
       'card' => $card,
       'decks' => $decks,
@@ -54,7 +54,7 @@ class ControllerFlashcards extends Controller
     $cards = $model->GetCardDataByCategory();
     $decks = $model->GetDecks();
     $now = time();
-    return view('Flashcards.edit', [
+    return view('edit', [
       'now' => $now,
       'cards' => $cards,
       'decks' => $decks
@@ -68,7 +68,7 @@ class ControllerFlashcards extends Controller
     $stacks = $model->GetStacks();
     $decks = $model->GetDecks();
     $now = time();
-    return view('Flashcards.stacks', [
+    return view('stacks', [
       'now' => $now,
       'stacks' => $stacks,
       'decks' => $decks
@@ -85,7 +85,7 @@ class ControllerFlashcards extends Controller
     $decks = $model->GetDecks();
     $stacks = $model->GetStacks();
     $formattedStacks = $model->FormatStacks($stacks);
-    return view('Flashcards.stats', [
+    return view('stats', [
       'logs' => $logs,
       'summary' => $summary,
       'cards' => $cards,
@@ -147,7 +147,7 @@ class ControllerFlashcards extends Controller
       $cat = $model->GetCardCategory($card);
       $card->category = $cat;
     }
-    return view('components.Flashcards.playCard', [
+    return view('components.playCard', [
       'card' => $card
     ]);
   }
@@ -163,7 +163,7 @@ class ControllerFlashcards extends Controller
     $model = new ModelFlashcards();
     $cards = $model->GetCardDataByCategory();
     $decks = $model->GetDecks();
-    return view('components.Flashcards.editCardData', [
+    return view('components.editCardData', [
       'cards' => $cards,
       'decks' => $decks
     ]);
@@ -227,7 +227,7 @@ class ControllerFlashcards extends Controller
     $model = new ModelFlashcards();
     $stacks = $model->GetStacks();
     $decks = $model->GetDecks();
-    return view('components.Flashcards.stackData', [
+    return view('components.stackData', [
       'stacks' => $stacks,
       'decks' => $decks
     ]);

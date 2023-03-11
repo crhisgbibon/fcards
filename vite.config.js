@@ -7,6 +7,10 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/edit.js',
+                'resources/js/play.js',
+                'resources/js/stacks.js',
+                'resources/js/stats.js',
             ],
             refresh: true,
         }),

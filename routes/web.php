@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/play');
 });
 
 Route::get('/dashboard', function () {
@@ -29,32 +29,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/flashcards', function(){
-  return redirect('/flashcards/play');
-});
-
 Route::controller(ControllerFlashcards::class)->group(function () {
-  Route::get('/flashcards/play', 'play')->middleware(['auth', 'verified'])->name('flashcardsPlay');
-  Route::get('/flashcards/decks', 'edit')->middleware(['auth', 'verified'])->name('flashcardsEdit');
-  Route::get('/flashcards/stacks', 'stacks')->middleware(['auth', 'verified'])->name('flashcardsStacks');
-  Route::get('/flashcards/stats', 'stats')->middleware(['auth', 'verified'])->name('flashcardsStats');
+  Route::get('/play', 'play')->middleware(['auth', 'verified'])->name('Play');
+  Route::get('/decks', 'edit')->middleware(['auth', 'verified'])->name('Edit');
+  Route::get('/stacks', 'stacks')->middleware(['auth', 'verified'])->name('Stacks');
+  Route::get('/stats', 'stats')->middleware(['auth', 'verified'])->name('Stats');
 
-  Route::post('/flashcards/play/RightAnswer', 'RightAnswer')->middleware(['auth', 'verified'])->name('flashcardsRightAnswer');
-  Route::post('/flashcards/play/WrongAnswer', 'WrongAnswer')->middleware(['auth', 'verified'])->name('flashcardsWrongAnswer');
-  Route::post('/flashcards/play/NewCard', 'NewCard')->middleware(['auth', 'verified'])->name('flashcardsNewCard');
-  Route::post('/flashcards/play/ResetCount', 'ResetCount')->middleware(['auth', 'verified'])->name('flashcardsResetCount');
+  Route::post('/play/RightAnswer', 'RightAnswer')->middleware(['auth', 'verified'])->name('RightAnswer');
+  Route::post('/play/WrongAnswer', 'WrongAnswer')->middleware(['auth', 'verified'])->name('WrongAnswer');
+  Route::post('/play/NewCard', 'NewCard')->middleware(['auth', 'verified'])->name('NewCard');
+  Route::post('/play/ResetCount', 'ResetCount')->middleware(['auth', 'verified'])->name('ResetCount');
 
-  Route::post('/flashcards/decks/GetCards', 'GetCards')->middleware(['auth', 'verified'])->name('flashcardsGetCards');
-  Route::post('/flashcards/decks/SaveCardChanges', 'SaveCardChanges')->middleware(['auth', 'verified'])->name('flashcardsSaveCardChanges');
-  Route::post('/flashcards/decks/DeleteCard', 'DeleteCard')->middleware(['auth', 'verified'])->name('flashcardsDeleteCard');
-  Route::post('/flashcards/decks/UpdateCategoryName', 'UpdateCategoryName')->middleware(['auth', 'verified'])->name('flashcardsUpdateCategoryName');
-  Route::post('/flashcards/decks/AddNewCard', 'AddNewCard')->middleware(['auth', 'verified'])->name('flashcardsAddNewCard');
-  Route::post('/flashcards/decks/StackCol', 'StackCol')->middleware(['auth', 'verified'])->name('flashcardsStackCol');
+  Route::post('/decks/GetCards', 'GetCards')->middleware(['auth', 'verified'])->name('GetCards');
+  Route::post('/decks/SaveCardChanges', 'SaveCardChanges')->middleware(['auth', 'verified'])->name('SaveCardChanges');
+  Route::post('/decks/DeleteCard', 'DeleteCard')->middleware(['auth', 'verified'])->name('DeleteCard');
+  Route::post('/decks/UpdateCategoryName', 'UpdateCategoryName')->middleware(['auth', 'verified'])->name('UpdateCategoryName');
+  Route::post('/decks/AddNewCard', 'AddNewCard')->middleware(['auth', 'verified'])->name('AddNewCard');
+  Route::post('/decks/StackCol', 'StackCol')->middleware(['auth', 'verified'])->name('StackCol');
 
-  Route::post('/flashcards/stacks/AddNewStack', 'AddNewStack')->middleware(['auth', 'verified'])->name('flashcardsAddNewStack');
-  Route::post('/flashcards/stacks/UpdateStackName', 'UpdateStackName')->middleware(['auth', 'verified'])->name('flashcardsUpdateStackName');
-  Route::post('/flashcards/stacks/DeleteStack', 'DeleteStack')->middleware(['auth', 'verified'])->name('flashcardsDeleteStack');
-  Route::post('/flashcards/stacks/EditExistingStack', 'EditExistingStack')->middleware(['auth', 'verified'])->name('flashcardsEditExistingStack');
+  Route::post('/stacks/AddNewStack', 'AddNewStack')->middleware(['auth', 'verified'])->name('AddNewStack');
+  Route::post('/stacks/UpdateStackName', 'UpdateStackName')->middleware(['auth', 'verified'])->name('UpdateStackName');
+  Route::post('/stacks/DeleteStack', 'DeleteStack')->middleware(['auth', 'verified'])->name('DeleteStack');
+  Route::post('/stacks/EditExistingStack', 'EditExistingStack')->middleware(['auth', 'verified'])->name('EditExistingStack');
 });
 
 require __DIR__.'/auth.php';
